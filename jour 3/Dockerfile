@@ -1,13 +1,13 @@
 FROM ubuntu
 
+COPY . /work
+WORKDIR ./work
+
 RUN apt update
 RUN apt install sudo -y
 RUN apt install python3 -y 
 RUN apt install python3-pip -y
 RUN apt install python3-venv -y
-
-RUN mkdir work
-WORKDIR work
 
 RUN python3 -m venv myEnv
 RUN /bin/bash -c "source myEnv/bin/activate"
